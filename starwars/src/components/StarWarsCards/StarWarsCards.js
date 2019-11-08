@@ -54,30 +54,31 @@ function StarWarsCards() {
     useEffect(() => {
         if(isSelector.kind === "planets") {
 
-        axios.get(/*"https://swapi.co/api/people/"*/
-        "https://lambda-swapi.herokuapp.com/api/planets/")
-            .then(response => {
-                console.log(response.data.results)
-                // if(isSelector.kind === "planets") {
-                    setStarWarsCharacters(response.data.results)
-                    // console.log(isSelector.kind)
-    
-                // }
-                // response.data.results.forEach(character => {
-                    // console.log(character)
+            axios.get(/*"https://swapi.co/api/people/"*/
+            "https://lambda-swapi.herokuapp.com/api/planets/")
+                .then(response => {
+                    console.log(response.data.results)
+                    // if(isSelector.kind === "planets") {
+                        setStarWarsCharacters(response.data.results)
+                        // console.log(isSelector.kind)
+        
+                    // }
+                    // response.data.results.forEach(character => {
+                        // console.log(character)
 
-                    // let keys = Object.keys(character)
-                    // keys.forEach(key => {
-                    //     console.log(character[key])
+                        // let keys = Object.keys(character)
+                        // keys.forEach(key => {
+                        //     console.log(character[key])
+                        // })
                     // })
-                // })
-            })
-            .catch(error => {
-                console.log(error.message)
-            })
+                })
+                .catch(error => {
+                    console.log(error.message)
+                })
         }
     }, [isSelector])
 
+    // flip the selector data so it's ready for the next butten press
     const clickedPlanet = () => {
         if(isSelector.clicked === true) {
             setIsSelector({
@@ -114,8 +115,8 @@ function StarWarsCards() {
         return (<div>Loading...</div>)
 
     } else {
-        console.log("ready to display")
-        console.log(starWarsCharacters)
+        // console.log("ready to display")
+        // console.log(starWarsCharacters)
 
         // have to convert an array(it claims it's an array) to an array to use forEach
         let startWarsCharacters = Array.from(starWarsCharacters)
@@ -133,7 +134,7 @@ function StarWarsCards() {
                 }}>Get people</button>
                 <Cards>
                  {startWarsCharacters.map(character => {
-                    return <StarWarsCard key={character.name} character={character} isSelector={isSelector.clicked}/>
+                    return <StarWarsCard key={character.name} character={character} isSelector={isSelector}/>
                 })}
             </Cards>
             </div>
