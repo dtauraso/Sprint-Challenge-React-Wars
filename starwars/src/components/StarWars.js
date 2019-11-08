@@ -8,6 +8,7 @@ import './StarWars.css';
 
 function StarWars() {
 
+    // relocated so getting people and planets is easier
     // const [starWarsCharacters, setStarWarsCharacters] = useState({})
     // useEffect(() => {
 

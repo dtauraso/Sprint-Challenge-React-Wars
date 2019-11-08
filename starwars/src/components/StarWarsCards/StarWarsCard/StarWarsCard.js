@@ -29,7 +29,7 @@ function StarWarsCard(props) {
             return (
             <Card>
                 <h2>{props.character.name}</h2>
-                <p className="left">Heigh: {props.character.height}</p>
+                <p className="left">Height: {props.character.height}</p>
                 <p className="left">Mass: {props.character.mass}g</p>
                 <p className="left">Eye color: {props.character.eye_color}</p>
 

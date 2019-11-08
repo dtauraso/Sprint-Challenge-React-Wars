@@ -3,6 +3,8 @@ import StarWarsCard from "./StarWarsCard/StarWarsCard";
 import axios from "axios"
 import styled from "styled-components";
 
+// I don't need this because all the components are rendering to 1 html file, right?
+// the css reset in the App.css should be enough then?
 // import './StarWarsCards.css';
 
 const Cards = styled.div`
@@ -25,30 +27,23 @@ function StarWarsCards() {
         clicked: false,
         kind: "people"
     })
-    const [planets, setPlanets] = useState({})
 
     useEffect(() => {
+
+        // only fetch if we selected the right artifact
         if(isSelector.kind === "people") {
             axios.get(/*"https://swapi.co/api/people/"*/
+            // faster
             "https://lambda-swapi.herokuapp.com/api/people/")
                 .then(response => {
                     // console.log(response)
     
                     setStarWarsCharacters(response.data.results)
-                    // response.data.results.forEach(character => {
-                        // console.log(character)
-    
-                        // let keys = Object.keys(character)
-                        // keys.forEach(key => {
-                        //     console.log(character[key])
-                        // })
-                    // })
                 })
                 .catch(error => {
                     console.log(error.message)
                 })
         }
-        
     }, [isSelector])
 
     useEffect(() => {
@@ -58,19 +53,7 @@ function StarWarsCards() {
             "https://lambda-swapi.herokuapp.com/api/planets/")
                 .then(response => {
                     console.log(response.data.results)
-                    // if(isSelector.kind === "planets") {
                         setStarWarsCharacters(response.data.results)
-                        // console.log(isSelector.kind)
-        
-                    // }
-                    // response.data.results.forEach(character => {
-                        // console.log(character)
-
-                        // let keys = Object.keys(character)
-                        // keys.forEach(key => {
-                        //     console.log(character[key])
-                        // })
-                    // })
                 })
                 .catch(error => {
                     console.log(error.message)
@@ -105,7 +88,6 @@ function StarWarsCards() {
             })
         }
     }
-    // characters={starWarsCharacters}
     // console.log("start", starWarsCharacters, starWarsCharacters === [])
 
     if(starWarsCharacters.length === 0) {
