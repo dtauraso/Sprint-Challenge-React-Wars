@@ -9,6 +9,7 @@ function StarWarsCard(props) {
     return (<div>
 
         <h2>{props.character.name}</h2>
+    <p>{}</p>
     </div>)
 
 

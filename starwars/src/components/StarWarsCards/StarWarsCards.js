@@ -1,6 +1,6 @@
 import React from "react"
 import StarWarsCard from "./StarWarsCard/StarWarsCard";
-import { format } from "path";
+// import { format } from "path";
 import styled from "styled-components";
 
 // import './StarWarsCards.css';
@@ -8,6 +8,9 @@ import styled from "styled-components";
 const Cards = styled.div`
 
     display: flex;
+    max-width: 900px;
+    border: 1px solid black;
+    padding: 1rem;
 
 `
 
