@@ -26,13 +26,45 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+	React JS is a UI library
+	It solves the DOM manipulation by using a virtual DOM.
+	it solves state changing in the UI by reloading the page each time state changes.
+	it makes designing code easier by using components, reusable code pieces.
+
 - [ ] What does it mean to _think_ in react?
+
+    You solve problems by using components, state hooks, axios calls.
+	Your UI development is done using the tools react gives you.
 
 - [ ] Describe state.
 
+    The data you use with the UI.  It's mainly for when the user interacts with the data but it can come from axios calls too.  It's mutable.
+
 - [ ] Describe props.
 
+    Props is how you send data to nested components.  Props are immutable, so you must save to a local variable, ideally using state hooks.
+
 - [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+	Side effects are things that are done outside the scope of the code
+	axios calls are made to computers miles away.
+	
+	You use the following rules to determine how to sync the changes:
+	
+		useEffect(cb)
+			fires on launch of component and each time a state changes
+		
+		useEffect(cb, [])
+			fires once on launch of component and nowhere else
+		
+		useEffect(cb, [a, b])
+			fires once on launch of component and each time a or b changes
+			a and b are state data that can also come from props
+			if you put a setA() inside a useEffect cb and put a in the dependency []
+			you will get an infinite loop
+
+
+
 
 ## Project Set Up
 
